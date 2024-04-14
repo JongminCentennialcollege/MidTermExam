@@ -2,9 +2,9 @@ const Student = require('../models/mid.model');
 
 exports.create = async (req, res) => {
     try {
-        if (!req.body.name || !req.body.age || !req.body.major) {
+        if (!req.body.name || !req.body.age || !req.body.major || !req.body.grade || !req.body.gender) {
             return res.status(400).send({
-                message: 'Name, age, and major cannot be empty',
+                message: 'Name, age, gender, grade and major cannot be empty',
             });
         }
 
@@ -12,6 +12,8 @@ exports.create = async (req, res) => {
             name: req.body.name,
             age: req.body.age,
             major: req.body.major,
+            grade: req.body.grade,
+            gender : req.body.gender,
         });
 
         const createdStudent = await student.save();
@@ -28,9 +30,9 @@ exports.update = async (req, res) => {
     try {
         const id = req.params.id;
 
-        if (!req.body.name || !req.body.age || !req.body.major) {
+        if (!req.body.name || !req.body.age || !req.body.major || !req.body.grade || !req.body.gender) {
             return res.status(400).send({
-                message: 'Name, age, and major cannot be empty',
+                message: 'Name, age, gender, grade and major cannot be empty',
             });
         }
 
@@ -40,6 +42,8 @@ exports.update = async (req, res) => {
                 name: req.body.name,
                 age: req.body.age,
                 major: req.body.major,
+                grade: req.body.grade,
+                gender : req.body.gender,
             },
             { new: true }
         );

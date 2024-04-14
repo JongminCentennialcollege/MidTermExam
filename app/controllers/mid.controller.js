@@ -2,7 +2,7 @@ const Student = require('../models/mid.model');
 
 exports.create = async (req, res) => {
     try {
-        if (!req.body.name || !req.body.age || !req.body.major) {
+        if (!req.body.name || !req.body.age || !req.body.major || !req.body.grade) {
             return res.status(400).send({
                 message: 'Name, age, and major cannot be empty',
             });
@@ -29,7 +29,7 @@ exports.update = async (req, res) => {
     try {
         const id = req.params.id;
 
-        if (!req.body.name || !req.body.age || !req.body.major) {
+        if (!req.body.name || !req.body.age || !req.body.major || !req.body.grade) {
             return res.status(400).send({
                 message: 'Name, age, and major cannot be empty',
             });

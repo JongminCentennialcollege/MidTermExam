@@ -5,6 +5,7 @@ const StudentSchema = mongoose.Schema({
     name: String,
     age: Number,
     major: String,
+    grade: String,
     createdDate: {
         type: Date,
         default: Date.now

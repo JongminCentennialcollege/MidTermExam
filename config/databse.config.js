@@ -1,4 +1,4 @@
 module.exports = {
-    url:"mongodb+srv://rh003:jongminlee@cluster0.ptpdrol.mongodb.net/test?retryWrites=true&w=majority"
+    url:"mongodb+srv://ChatApptest:1234567890@cluster0.9nevfyr.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 }
 

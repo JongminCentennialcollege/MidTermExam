@@ -12,6 +12,7 @@ exports.create = async (req, res) => {
             name: req.body.name,
             age: req.body.age,
             major: req.body.major,
+            grade: req.body.grade,
         });
 
         const createdStudent = await student.save();
@@ -40,6 +41,7 @@ exports.update = async (req, res) => {
                 name: req.body.name,
                 age: req.body.age,
                 major: req.body.major,
+                grade: req.body.grade,
             },
             { new: true }
         );

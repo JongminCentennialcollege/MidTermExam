@@ -12,6 +12,14 @@ pipeline {
                 checkout scm
             }
         }
+        
+        stage('Fix Permissions') {
+    steps {
+        script {
+            sh 'sudo chown -R $(whoami) /Users/jongminlee/.npm'
+        }
+    }
+}
 
         stage('Clear npm cache') {
     steps {

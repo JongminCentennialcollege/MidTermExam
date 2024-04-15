@@ -1,70 +1,32 @@
 pipeline {
-    agent any 
-
-    environment {
-
-        
-    }
+    agent any
 
     stages {
         stage('Checkout') {
             steps {
-                checkout scm 
+                // 코드 저장소에서 코드 체크아웃
+                checkout scm
             }
         }
 
         stage('Install dependencies') {
             steps {
-                sh 'npm install' 
+                // 프로젝트 의존성 설치
+                sh 'npm install'
             }
         }
 
         stage('Build') {
             steps {
-                sh 'npm run build' 
-            }
-        }
-
-        stage('SonarQube analysis') {
-            steps {
-                sh "sonar-scanner -Dsonar.projectKey=${SONAR_PROJECT_KEY} -Dsonar.sources=." 
+                // 프로젝트 빌드
+                sh 'npm run build'
             }
         }
 
         stage('Test') {
             steps {
-                sh 'npm test' 
-                
-            }
-        }
-
-        stage('Deliver') {
-            steps {
-               
-            }
-        }
-
-        stage('Deploy to Dev Env') {
-            steps {
-                sh 'echo Deploying to Development Environment' 
-            }
-        }
-
-        stage('Deploy to QAT Env') {
-            steps {
-                sh 'echo Deploying to QAT Environment' 
-            }
-        }
-
-        stage('Deploy to Staging Env') {
-            steps {
-                sh 'echo Deploying to Staging Environment' 
-            }
-        }
-
-        stage('Deploy to Production Env') {
-            steps {
-                sh 'echo Deploying to Production Environment' 
+                // 유닛 테스트 실행 및 커버리지 리포트 생성
+                sh 'npm test'
             }
         }
     }

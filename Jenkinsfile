@@ -2,36 +2,69 @@ pipeline {
     agent any
     
     tools { 
-        nodejs "NodeJS" // Global Tool Configuration에서 설정한 Node.js 이름
+        nodejs "NodeJS" 
     }
     
     stages {
         stage('Checkout') {
             steps {
-                // 코드 저장소에서 코드 체크아웃
+             
                 checkout scm
             }
         }
-        
-
-
-
-
 
         stage('Install dependencies') {
             steps {
-                // 프로젝트 의존성 설치
+           
                 sh 'npm install'
             }
         }
 
         stage('Build') {
             steps {
-                // 프로젝트 빌드
+              
                 sh 'npm run build'
             }
         }
 
+      
+        stage('Deliver') {
+            steps {
+               
+                sh 'echo "Deliver stage - Mock step for releasing artifact"'
+            }
+        }
 
+
+        stage('Deploy to Dev Env') {
+            steps {
+             
+                sh 'echo "Deploying to Development Environment - Mock deployment"'
+            }
+        }
+
+    
+        stage('Deploy to QAT Env') {
+            steps {
+                
+                sh 'echo "Deploying to QAT Environment - Mock deployment"'
+            }
+        }
+
+       
+        stage('Deploy to Staging Env') {
+            steps {
+               
+                sh 'echo "Deploying to Staging Environment - Mock deployment"'
+            }
+        }
+
+  
+        stage('Deploy to Production Env') {
+            steps {
+              
+                sh 'echo "Deploying to Production Environment - Mock deployment"'
+            }
+        }
     }
 }

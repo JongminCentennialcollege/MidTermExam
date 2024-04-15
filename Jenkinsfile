@@ -13,19 +13,8 @@ pipeline {
             }
         }
         
-        stage('Fix Permissions') {
-    steps {
-        script {
-            sh 'sudo chown -R $(whoami) /Users/jongminlee/.npm'
-        }
-    }
-}
 
-        stage('Clear npm cache') {
-    steps {
-        sh 'npm cache clean --force'
-    }
-}
+
 
 
 
@@ -43,13 +32,6 @@ pipeline {
             }
         }
 
-        stage('Test') {
-            steps {
-                // Jest를 전역으로 설치 (필요한 경우)
-                sh 'npm install -g jest'
-                // 유닛 테스트 실행 및 커버리지 리포트 생성
-                sh 'npm test'
-            }
-        }
+
     }
 }

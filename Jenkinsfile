@@ -13,6 +13,14 @@ pipeline {
             }
         }
 
+        stage('Clear npm cache') {
+    steps {
+        sh 'npm cache clean --force'
+    }
+}
+
+
+
         stage('Install dependencies') {
             steps {
                 // 프로젝트 의존성 설치

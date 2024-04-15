@@ -1,6 +1,9 @@
 pipeline {
     agent any
-
+    
+    tools { 
+        nodejs "NodeJS" // Global Tool Configuration에서 설정한 Node.js 이름
+    }
     stages {
         stage('Checkout') {
             steps {
